@@ -1,0 +1,23 @@
+Create User
+curl localhost:5000/create_user -X POST -d "email=123@gmail.com" -d "password=123"
+
+Login (Get Token)
+curl localhost:5000/login -X POST -d "email=123@gmail.com" -d "password=123"
+
+Renew Token
+curl localhost:5000/login -X GET --header "token: from login api"
+
+Change Password
+curl localhost:5000/change_password -X POST --header "token: from login api" -d "old_password=123" -d "new_password=1234"
+
+Forget Password
+curl localhost:5000/forget_password -X POST -d "email=123@gmail.com" -d "name=test"
+
+Get Projects List
+curl localhost:5000/projects_list -X GET --header "token: from login api"
+
+Add to Projects List
+curl localhost:5000/projects_list -X POST --header "token: from login api" -d "project_name= " [-d "project_speed= "]
+
+Delete from Projects List
+curl localhost:5000/projects_list -X DELETE --header "token: from login api" -d "project_name= " [-d "project_speed= "]
